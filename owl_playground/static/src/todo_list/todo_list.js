@@ -20,4 +20,16 @@ export class TodoList extends Component {
         }
 
     }
+    toggleTodo(todoId) {
+        const todo = this.todoList.find((todo) => todo.id === todoId);
+        if (todo) {
+            todo.done = !todo.done;
+        }
+    }
+    removeTodo(todoId) {
+        const todoIndex = this.todoList.findIndex((todo) => todo.id === todoId);
+        if (todoIndex >= 0) {
+            this.todoList.splice(todoIndex, 1);
+        }
+    }
 }
